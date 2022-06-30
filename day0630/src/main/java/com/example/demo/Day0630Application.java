@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.ArrayList;
+import java.util.function.BinaryOperator;
 import java.util.function.IntFunction;
 
 import org.springframework.boot.SpringApplication;
@@ -54,28 +55,32 @@ public class Day0630Application {
 //		System.out.println(r.apply(50));
 		
 		//전달받은 숫자 만큼 arrayList를 생성하여 모든 요소에 숫자만큼 100으로 채워진 
-		IntFunction<ArrayList<Integer>> r = (a)->{
-			ArrayList<Integer> b = new ArrayList<Integer>();
-			for(int i=0;i<a;i++) {
-				b.add(100);
-			}
-			return b;
-		};
-		System.out.println(r.apply(6).toString());
-		System.out.println(r.apply(6));
-		}
-	
-		//매개변수로 전달받은 값보다 더큰 값의 요소로 구성된 리스트를 반환하는 기능 작성
-		int[] arr = {9,2,3,100,7,6,5,20,5,8,7,9,30};
-	
-		IntFunction<ArrayList<Integer>> selectBigger = (a)->{
-			ArrayList<Integer> list = new ArrayList<Integer>();
-			for(int b: arr) {
-				if(b>a) {
-					list.add(b);
-				}
-			}
-			return list;
-		};
+//		IntFunction<ArrayList<Integer>> r = (a)->{
+//			ArrayList<Integer> b = new ArrayList<Integer>();
+//			for(int i=0;i<a;i++) {
+//				b.add(100);
+//			}
+//			return b;
+//		};
+//		System.out.println(r.apply(6).toString());
+//		System.out.println(r.apply(6));
+//		}
+//	
+//		//매개변수로 전달받은 값보다 더큰 값의 요소로 구성된 리스트를 반환하는 기능 작성
+//		int[] arr = {9,2,3,100,7,6,5,20,5,8,7,9,30};
+//	
+//		IntFunction<ArrayList<Integer>> selectBigger = (a)->{
+//			ArrayList<Integer> list = new ArrayList<Integer>();
+//			for(int b: arr) {
+//				if(b>a) {
+//					list.add(b);
+//				}
+//			}
+//			return list;
+//		};
 		
+		BinaryOperator<String> json = (attr, value)->"{"+attr+":"+value+"}";
+		String data = json.apply("name", "이순신");
+		System.out.println(data);
+	}
 }
