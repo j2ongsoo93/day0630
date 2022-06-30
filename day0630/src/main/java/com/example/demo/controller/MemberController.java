@@ -15,6 +15,6 @@ public class MemberController {
 	@RequestMapping("/loginOK")
 	@ResponseBody
 	public String loginOK() {
-		return "redirect:/listBoard";
+		return "redirect:/listBoard"; 
 	}
 }

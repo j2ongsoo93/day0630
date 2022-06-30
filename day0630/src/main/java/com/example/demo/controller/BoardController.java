@@ -10,4 +10,4 @@ public class BoardController {
 	public String listBoard() {
 		return "게시물목록";
 	}
-}
+} 
